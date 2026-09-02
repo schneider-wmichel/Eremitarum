@@ -1,3 +1,9 @@
+# Ambiente virtual
 .venv/
+
+# Diários pessoais
+diario/
+
+# Cache do Python
 __pycache__/
 *.pyc

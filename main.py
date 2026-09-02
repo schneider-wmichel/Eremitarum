@@ -1,18 +1,14 @@
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow
 
+from PySide6.QtWidgets import QApplication
 
-class Eremita(QMainWindow):
-    def __init__(self):
-        super().__init__()
-
-        self.setWindowTitle("Eremita")
-        self.resize(940, 540)
+from interface.janela_principal import JanelaPrincipal
 
 
 app = QApplication(sys.argv)
 
-janela = Eremita()
+janela = JanelaPrincipal()
+
 janela.show()
 
 sys.exit(app.exec())
