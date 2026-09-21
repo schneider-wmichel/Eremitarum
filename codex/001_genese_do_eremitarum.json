@@ -1,27 +1,14 @@
-,{
-    "numero": 1,
-    "titulo": "A Gênese do Eremitarum",
-    "data": "2026-09-02",
-    "tipo": "historico",
-    "conteudo": {
-        "desenvolvimento": "",
-        "registro_pessoal": ""
-    }
-}
 {
     "numero": 1,
     "titulo": "A Gênese do Eremitarum",
     "data": "2026-09-02",
     "tipo": "historico",
     "conteudo": {
-        "desenvolvimento": {
-            "titulo": "O nascimento do projeto",
-            "texto": "O Eremitarum começou a ganhar forma como um projeto pessoal de diário científico e pessoal para Linux. A proposta inicial é criar uma aplicação que permita registrar pensamentos, estudos, experiências e acontecimentos, mantendo esses registros organizados e acessíveis ao longo do tempo.\n\nO projeto está sendo desenvolvido com Python e PySide6, enquanto o próprio desenvolvimento serve também como uma forma de aprendizado de programação.\n\nDurante esta primeira etapa foram criadas as estruturas iniciais do programa, incluindo a janela principal, o modelo de dados do diário e o sistema responsável por salvar e carregar as entradas em arquivos JSON.\n\nUma das primeiras decisões importantes foi separar as responsabilidades do programa. O arquivo main.py funciona como ponto de entrada da aplicação. A pasta interface concentra a interface gráfica. A pasta dados concentra as estruturas e o armazenamento das informações. A pasta diario guarda as entradas produzidas pelo usuário.\n\nTambém foi estabelecida uma regra importante para o funcionamento do Eremitarum: o programa deve sempre iniciar perguntando qual é a data do diário que será trabalhado naquela sessão, em vez de simplesmente abrir uma data previamente armazenada.\n\nDurante o desenvolvimento surgiram problemas relacionados ao ambiente Python, à instalação do PySide6 e à indentação do código. Esses problemas fizeram parte do processo de aprendizado e foram resolvidos durante a construção do projeto.\n\nO sistema chegou ao ponto em que uma entrada pode ser criada para uma determinada data, receber título e texto, ser salva em JSON e posteriormente carregada novamente. Isso marcou um dos primeiros momentos em que o Eremitarum deixou de ser apenas uma estrutura de código e passou efetivamente a guardar uma memória escrita."
-        },
+        "desenvolvimento": "O Eremitarum começou como um projeto pessoal de diário para Linux. A ideia é criar uma aplicação para registrar pensamentos, estudos, experiências e acontecimentos, mantendo esses registros organizados e acessíveis ao longo do tempo.\n\nO projeto está sendo desenvolvido com Python e PySide6, enquanto o próprio desenvolvimento também serve como uma forma de aprendizado de programação.\n\nDurante esta primeira etapa foram criadas as estruturas iniciais do programa, incluindo a janela principal, o modelo de dados do diário e o sistema responsável por salvar e carregar as entradas em JSON.\n\nUma das decisões importantes foi fazer o programa iniciar perguntando qual é a data do diário que será trabalhado naquela sessão.\n\nDurante o desenvolvimento surgiram problemas relacionados ao ambiente Python, à instalação do PySide6 e à indentação do código. Esses problemas fizeram parte do processo de aprendizado e foram resolvidos durante a construção do projeto.",
         "registro_pessoal": {
             "titulo": "Eremitarum está vivo!!!",
             "data": "2026-09-02",
-            "texto": "Olá, mundo! Hoje, dia 02 de setembro de 2026, quatro dias antes do meu aniversário, o Eremitarum passou a ter vida. Começando a ganhar forma e se tornar o meu projeto pessoal, que um dia poderá chegar também para a comunidade open source de forma gratuita.\n\nLembrando que este projeto é sim feito com auxílio de uma IA, neste caso o ChatGPT, pois meus conhecimentos de programação ainda estão em desenvolvimento. Porém, isso não diminui o significado do projeto. Pelo contrário, faz parte da história de como ele nasceu.\n\nO Eremitarum não pretende ser apenas mais um programa. A ideia é construir, aprender, experimentar e registrar todo esse processo. Cada erro, cada descoberta e cada pequena funcionalidade fazem parte da história de sua construção.\n\nEste é apenas o começo.\n\nEremitarum está vivo!!!"
+            "texto": "Olá, mundo! Hoje, dia 02 de setembro de 2026, quatro dias antes do meu aniversário, o Eremitarum passou a ter vida.\n\nO projeto está começando a ganhar forma e se tornar meu projeto pessoal, que um dia poderá chegar também para a comunidade open source de forma gratuita.\n\nEste projeto é desenvolvido com auxílio de uma IA, neste caso o ChatGPT, pois meus conhecimentos de programação ainda estão em desenvolvimento. Isso também faz parte da história de como ele nasceu.\n\nO Eremitarum não pretende ser apenas mais um programa. A ideia é construir, aprender, experimentar e registrar todo esse processo.\n\nEste é apenas o começo.\n\nEremitarum está vivo!!!"
         }
     }
 }
