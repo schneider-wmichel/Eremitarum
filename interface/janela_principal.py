@@ -11,7 +11,8 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import QDate
 
 from dados.diario import Diario
-from dados.armazenamento import salvar_diario, carregar_diario
+from dados.armazenamento import salvar_diario
+from codex.janela_codex import JanelaCodex
 
 
 class JanelaPrincipal(QWidget):
@@ -22,13 +23,21 @@ class JanelaPrincipal(QWidget):
         self.setWindowTitle("Eremitarum")
         self.resize(600, 500)
 
-        self.label_data = QLabel("Qual é a data do diário?")
+        self.label_data = QLabel(
+            "Qual é a data do diário?"
+        )
 
         self.data = QDateEdit()
         self.data.setCalendarPopup(True)
         self.data.setDate(QDate.currentDate())
 
-        self.botao_continuar = QPushButton("Continuar")
+        self.botao_continuar = QPushButton(
+            "Continuar"
+        )
+
+        self.botao_codex = QPushButton(
+            "Arquivos Codex"
+        )
 
         self.label_titulo = QLabel("Título")
 
@@ -38,13 +47,16 @@ class JanelaPrincipal(QWidget):
 
         self.texto = QTextEdit()
 
-        self.botao_salvar = QPushButton("Salvar")
+        self.botao_salvar = QPushButton(
+            "Salvar"
+        )
 
         layout = QVBoxLayout()
 
         layout.addWidget(self.label_data)
         layout.addWidget(self.data)
         layout.addWidget(self.botao_continuar)
+        layout.addWidget(self.botao_codex)
 
         layout.addWidget(self.label_titulo)
         layout.addWidget(self.titulo)
@@ -56,52 +68,58 @@ class JanelaPrincipal(QWidget):
 
         self.setLayout(layout)
 
-        self.botao_continuar.clicked.connect(self.continuar)
-        self.botao_salvar.clicked.connect(self.salvar)
+        self.botao_continuar.clicked.connect(
+            self.continuar
+        )
 
+        self.botao_codex.clicked.connect(
+            self.abrir_codex
+        )
+
+        self.botao_salvar.clicked.connect(
+            self.salvar
+        )
+
+        self.janela_codex = None
 
     def continuar(self):
 
         data_escolhida = self.data.date()
 
-        data_formatada = data_escolhida.toString("dd/MM/yyyy")
+        data_formatada = data_escolhida.toString(
+            "dd/MM/yyyy"
+        )
 
-        data_arquivo = data_escolhida.toString("yyyy-MM-dd")
+        data_arquivo = data_escolhida.toString(
+            "yyyy-MM-dd"
+        )
 
-        entrada = carregar_diario(data_arquivo)
+        entrada = Diario(
+            data_arquivo
+        )
 
-        if entrada is None:
+        salvar_diario(entrada)
 
-            entrada = Diario(
-                data_arquivo
-            )
-
-            salvar_diario(entrada)
-
-            print("Novo diário criado!")
-
-        else:
-
-            print("Diário existente carregado!")
-
-        self.titulo.setText(entrada.titulo)
-        self.texto.setPlainText(entrada.texto)
-
-        self.entrada_atual = entrada
-
+        print("Entrada criada!")
         print("Data:", data_formatada)
 
+    def abrir_codex(self):
+
+        self.janela_codex = JanelaCodex()
+        self.janela_codex.show()
 
     def salvar(self):
 
-        if not hasattr(self, "entrada_atual"):
-            print("Nenhum diário foi selecionado.")
-            return
+        data_arquivo = self.data.date().toString(
+            "yyyy-MM-dd"
+        )
 
-        self.entrada_atual.titulo = self.titulo.text()
+        entrada = Diario(
+            data_arquivo,
+            self.titulo.text(),
+            self.texto.toPlainText()
+        )
 
-        self.entrada_atual.texto = self.texto.toPlainText()
-
-        salvar_diario(self.entrada_atual)
+        salvar_diario(entrada)
 
         print("Diário salvo!")
